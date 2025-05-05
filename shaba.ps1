@@ -15,11 +15,16 @@ function shaba($inp) {
     $sdps = $simpledate
 
     echo "inp: $nn"
-    $di = $nn.name.tostring().lastindexof(".")
+    if ($nn.name.tostring().contains(".")) {
+        $di = $nn.name.tostring().lastindexof(".")
 
-    $pref = $nn.name.tostring().substring($di)
+        $pref = $nn.name.tostring().substring($di)
 
-    $fp = $nn.name.tostring().substring(0,$di)
+        $fp = $nn.name.tostring().substring(0,$di)
+    } else { 
+       $fp = $nn.name.tostring()
+       $pref= ""
+    }
 
     $newname = ($fp, $sdps, $ts , $pref) -join "_"
     echo $newname 
